@@ -2,40 +2,73 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>For My Love🐈‍⬛</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{background:#0b0b0f;color:#eee;overflow:hidden}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+body{
+    background:#0b0b0f;
+    color:#eee;
+    overflow:hidden;
+    touch-action: pan-y;
+}
 
 /* OVERLAY */
 #overlay{
-    position:fixed;inset:0;background:#000;
-    display:flex;flex-direction:column;
-    justify-content:center;align-items:center;
-    z-index:20;text-align:center
+    position:fixed;
+    inset:0;
+    background:#000;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:20;
+    text-align:center;
+    padding:20px;
 }
 #overlay h1{color:#ff6b8a;font-size:2rem}
 #overlay p{opacity:.7}
 
 /* SLIDER */
-.container{display:flex;width:100vw;height:100vh;transition:transform .6s ease}
+.container{
+    display:flex;
+    width:100vw;
+    height:100vh;
+    transition:transform .45s ease;
+}
 
 /* CARD */
 .card{
-    min-width:100vw;padding:40px 25px;
-    display:flex;flex-direction:column;
-    justify-content:center;align-items:center;
-    text-align:center
+    min-width:100vw;
+    padding:32px 22px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
 }
-.card h2{color:#ff6b8a;margin-bottom:15px}
-.card p{font-size:1.05rem;line-height:1.7}
+.card h2{
+    color:#ff6b8a;
+    margin-bottom:14px;
+}
+.card p{
+    font-size:1.05rem;
+    line-height:1.6;
+}
 
 /* HEART */
 .heart{
-    font-size:3rem;margin-bottom:20px;
-    animation:heartbeat 1.2s infinite
+    font-size:3rem;
+    margin-bottom:18px;
+    animation:heartbeat 1.2s infinite;
 }
 @keyframes heartbeat{
     0%,100%{transform:scale(1);filter:drop-shadow(0 0 6px #ff6b8a)}
@@ -43,54 +76,97 @@ body{background:#0b0b0f;color:#eee;overflow:hidden}
 }
 
 /* CANDLE */
-.candle{font-size:4rem;cursor:pointer}
-.candle.playing{animation:flicker .18s infinite alternate}
+.candle{
+    font-size:4rem;
+    cursor:pointer;
+}
+.candle.playing{
+    animation:flicker .18s infinite alternate;
+}
 @keyframes flicker{
     from{filter:drop-shadow(0 0 8px orange)}
     to{filter:drop-shadow(0 0 22px gold)}
 }
 
 /* SECRET */
-#secretBox{display:none;margin-top:20px}
-input{padding:10px;border-radius:8px;border:none}
+#secretBox{
+    display:none;
+    margin-top:20px;
+    width:100%;
+}
+input{
+    width:100%;
+    max-width:260px;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    font-size:1rem;
+}
 button{
-    margin-top:12px;padding:10px 18px;
-    border:none;border-radius:20px;
-    background:#ff6b8a;color:#fff;cursor:pointer
+    margin-top:12px;
+    padding:12px 20px;
+    border:none;
+    border-radius:24px;
+    background:#ff6b8a;
+    color:#fff;
+    font-size:1rem;
+    cursor:pointer;
 }
 
 /* NAV */
 .nav{
-    position:fixed;bottom:20px;width:100%;
-    display:flex;justify-content:space-between;
-    padding:0 30px;z-index:5
+    position:fixed;
+    bottom:18px;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    padding:0 24px;
+    z-index:5;
 }
-.nav button{background:rgba(255,255,255,.12)}
+.nav button{
+    background:rgba(255,255,255,.15);
+}
 
 /* DOTS */
 #dots{
-    position:fixed;bottom:70px;width:100%;
-    display:flex;justify-content:center;
-    gap:8px;z-index:5
+    position:fixed;
+    bottom:64px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    z-index:5;
 }
-.dot{width:8px;height:8px;border-radius:50%;background:#555}
-.dot.active{background:#ff6b8a}
+.dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#555;
+}
+.dot.active{
+    background:#ff6b8a;
+}
 
-/* MUSIC */
+/* MUSIC BUTTON */
 #music-player{
-    position:fixed;bottom:12px;left:50%;
+    position:fixed;
+    bottom:10px;
+    left:50%;
     transform:translateX(-50%);
-    background:#111;padding:10px 18px;
-    border-radius:20px;
+    background:#111;
+    padding:12px 20px;
+    border-radius:24px;
     box-shadow:0 0 18px rgba(255,107,138,.35);
-    font-size:.9rem;cursor:pointer;z-index:5
+    font-size:.95rem;
+    z-index:6;
 }
 
 /* FLOATING HEARTS */
 .float{
-    position:fixed;bottom:-20px;
+    position:fixed;
+    bottom:-20px;
     animation:floatUp 7s linear infinite;
-    opacity:.5
+    opacity:.45;
 }
 @keyframes floatUp{
     from{transform:translateY(0)}
@@ -156,105 +232,107 @@ button{
 <div id="dots"></div>
 
 <!-- AUDIO -->
-<audio id="audio" src="music/song.mp3" loop></audio>
-<div id="music-player">▶ Play our song</div>
+<audio id="audio" src="music/song.mp3" loop controls style="display:none"></audio>
+<button id="music-player">▶ Play our song</button>
 
 <script>
-const audio=document.getElementById("audio");
-const musicBtn=document.getElementById("music-player");
-const candle=document.getElementById("candle");
+const audio = document.getElementById("audio");
+const musicBtn = document.getElementById("music-player");
+const candle = document.getElementById("candle");
+
+let playing = false;
 
 /* START MUSIC */
-document.getElementById("overlay").onclick=()=>{
-    audio.volume=0;
+document.getElementById("overlay").onclick = () => {
+    audio.volume = 0.7;
     audio.play();
+    playing = true;
+    musicBtn.innerText = "⏸ Pause";
     candle.classList.add("playing");
-    musicBtn.innerText="⏸ Pause";
-    let v=0;
-    const f=setInterval(()=>{
-        if(v<0.7){v+=0.02;audio.volume=v}
-        else clearInterval(f);
-    },120);
     document.getElementById("overlay").remove();
 };
 
 /* PLAY / PAUSE */
-musicBtn.onclick=()=>{
-    if(audio.paused){
+musicBtn.onclick = () => {
+    if(!playing){
         audio.play();
+        playing = true;
+        musicBtn.innerText = "⏸ Pause";
         candle.classList.add("playing");
-        musicBtn.innerText="⏸ Pause";
     }else{
         audio.pause();
+        playing = false;
+        musicBtn.innerText = "▶ Play our song";
         candle.classList.remove("playing");
-        musicBtn.innerText="▶ Play our song";
     }
 };
 
 /* SLIDER */
-let index=0;
-const slider=document.getElementById("slider");
-const cards=document.querySelectorAll(".card");
-const dotsWrap=document.getElementById("dots");
-cards.forEach(()=>dotsWrap.innerHTML+=`<div class="dot"></div>`);
-const dots=document.querySelectorAll(".dot");
+let index = 0;
+const slider = document.getElementById("slider");
+const cards = document.querySelectorAll(".card");
+
+const dotsWrap = document.getElementById("dots");
+cards.forEach(()=>dotsWrap.innerHTML += `<div class="dot"></div>`);
+const dots = document.querySelectorAll(".dot");
 
 function update(){
-    slider.style.transform=`translateX(-${index*100}vw)`;
+    slider.style.transform = `translateX(-${index * 100}vw)`;
     dots.forEach(d=>d.classList.remove("active"));
     dots[index].classList.add("active");
 }
 update();
-function next(){if(index<cards.length-1){index++;update();}}
-function prev(){if(index>0){index--;update();}}
 
-/* SWIPE */
-let sx=0;
-document.addEventListener("touchstart",e=>sx=e.touches[0].clientX);
+function next(){ if(index < cards.length-1){ index++; update(); } }
+function prev(){ if(index > 0){ index--; update(); } }
+
+/* SWIPE (MOBILE SAFE) */
+let startX = 0;
+document.addEventListener("touchstart",e=>{
+    startX = e.touches[0].clientX;
+},{passive:true});
+
 document.addEventListener("touchend",e=>{
-    let ex=e.changedTouches[0].clientX;
-    if(sx-ex>50)next();
-    if(ex-sx>50)prev();
+    const endX = e.changedTouches[0].clientX;
+    if(startX - endX > 50) next();
+    if(endX - startX > 50) prev();
 });
 
 /* CANDLE */
-candle.onclick=()=>{
-    document.getElementById("secretBox").style.display="block";
+candle.onclick = () => {
+    document.getElementById("secretBox").style.display = "block";
 };
 
 /* PASSWORD */
 function unlock(){
-    const p=document.getElementById("pass").value.toLowerCase();
-    if(p==="payyanu"){
+    const p = document.getElementById("pass").value.toLowerCase();
+    if(p === "payyanu"){
         document.getElementById("secretText").innerHTML =
-        `<a href="https://www.youtube.com/watch?v=xvFZjo5PgG0"
+        `<a href="https://www.youtube.com/watch?v=DmUrpFHC5Xc"
            target="_blank"
            style="color:#ff6b8a;text-decoration:none">
-           GO ON CLICK IT EHEHEH😈
+           🎶 Click here
          </a>`;
-
-        let f=setInterval(()=>{
-            if(audio.volume>0){audio.volume-=0.05}
-            else{audio.pause();clearInterval(f)}
-        },100);
-
+        audio.pause();
         candle.classList.remove("playing");
+        musicBtn.innerText = "▶ Play our song";
+        playing = false;
     }else{
-        document.getElementById("secretText").innerText="Wrong password… try again 💭";
+        document.getElementById("secretText").innerText =
+            "Wrong password… try again 💭";
     }
 }
 
 /* FLOATING HEARTS */
 setInterval(()=>{
-    const h=document.createElement("div");
-    h.className="float";
-    h.innerHTML="🖤";
-    h.style.left=Math.random()*100+"vw";
+    const h = document.createElement("div");
+    h.className = "float";
+    h.innerHTML = "🖤";
+    h.style.left = Math.random()*100 + "vw";
     document.body.appendChild(h);
     setTimeout(()=>h.remove(),7000);
-},600);
+},700);
 </script>
 
 </body>
 </html>
-
